@@ -1,6 +1,7 @@
 package controller;
 
 
+import model.orderDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.orderService;
@@ -23,11 +24,10 @@ public class orderController {
 }
 
 @PostMapping("/create")
-    ResponseEntity<order>createNewOrder(@RequestBody List<product>products){
-        //make order object from products
-        //-------
+    ResponseEntity<order>createNewOrder(@RequestBody orderDTO products){
 
-        //also update the Gadgets quantity  in the Gadget DB
+        // update the Gadgets quantity ->put in Products topic->Gadgets and Invetntory will consume the messages
+
 
         return ResponseEntity.ok(orderservice.save(products));//confused abt. parameter
 }

@@ -2,6 +2,7 @@ package model;
 
 import jakarta.persistence.Id;
 
+
 public class product {
             @Id
             int id;

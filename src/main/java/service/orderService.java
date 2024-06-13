@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import repository.orderRepository;
 import model.order;
 import java.util.List;
+import model.orderDTO;
 
 @Service
 public class orderService {
@@ -17,7 +18,7 @@ public class orderService {
         return (List<order>)orderrepository.findAll();
     }
 
-    public order save(order orderNew){
+    public order save(orderDTO orderNew){
         return orderrepository.save(orderNew);
     }
 
