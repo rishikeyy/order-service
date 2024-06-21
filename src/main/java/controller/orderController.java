@@ -28,6 +28,7 @@ public class orderController {
 
         // update the Gadgets quantity ->put in Products topic->Gadgets and Invetntory will consume the messages
 
+        orderservice.sendmessage();
 
         return ResponseEntity.ok(orderservice.save(products));//confused abt. parameter
 }

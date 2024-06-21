@@ -5,9 +5,9 @@ import org.hibernate.validator.constraints.UUID;
 
 import java.util.List;
 
-@Entity
+
 public class order {
     @UUID
-    String id;
-    List<product> items;
+    public String id;
+   public List<product> items;
 }
