@@ -17,12 +17,14 @@ public class orderService {
 
     @Autowired
     private final RestClientmy restclient;
-    public orderService(orderRepository orderrepository, MessageProducer messagesender) {
+    public orderService(orderRepository orderrepository, MessageProducer messagesender, RestClientmy restclient) {
         this.orderrepository = orderrepository;
         this.messageProducer = messagesender;
+
+        this.restclient = restclient;
     }
 
-    public List<order> findAll(){
+    public List<order> getOrders(){
         return (List<order>)orderrepository.findAll();
     }
 

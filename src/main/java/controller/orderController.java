@@ -20,7 +20,7 @@ public class orderController {
 
 @GetMapping
     ResponseEntity<List<order>>orders(){
-        return ResponseEntity.ok(orderservice.findAll());
+        return ResponseEntity.ok(orderservice.getOrders());
 }
 
 @PostMapping("/create")

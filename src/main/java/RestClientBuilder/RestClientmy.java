@@ -1,20 +1,19 @@
 package RestClientBuilder;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClient;
 
-@Service
+@Component
 public class RestClientmy {
 
+    @Value("${service.product.base}")
+    private  String productUrl;
 
+    RestClient getRestClientmy(){
+        return RestClient.builder().baseUrl(productUrl).build();
+    }
 
-    RestClientmy customClient = RestClientmy.builder()
-            .requestFactory(new HttpComponentsClientHttpRequestFactory())
-
-            .baseUrl("https://example.com")//products url
-            .defaultUriVariables(Map.of("variable", "foo"))
-            .defaultHeader("My-Header", "Foo")
-            .requestInterceptor(myCustomInterceptor)
-            .requestInitializer(myCustomInitializer)
-            .build();
 }
